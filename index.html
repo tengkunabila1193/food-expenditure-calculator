@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Weekly Food Expenditure Predictor</title>
+<title>Weekly Food Expenditure Calculator</title>
 
 <style>
 
@@ -111,20 +111,23 @@ button:hover{
 
 <div class="card">
 
-<h1>🍽️ Food Expenditure Predictor</h1>
+<h1>🍽️ Food Expenditure Calculator</h1>
 
 <p class="subtitle">
-Estimate weekly household food expenditure (RM)
-</p>
+Enter your weekly household income and the number of people in your household.</p>
 
 <label>Weekly Household Income (RM)</label>
-<input type="number" id="income" placeholder="Enter income">
+<input type="number" id="income" placeholder="e.g. 2000">
+<p class="subtitle">
+Enter your weekly household income in RM.</p>
 
 <label>Household Size (Persons)</label>
-<input type="number" id="size" placeholder="Enter household size">
-
+<input type="number" id="size" placeholder="e.g. 4">
+<p class="subtitle">
+Enter Enter the number of people in the household.</p>
+    
 <button onclick="calculate()">
-Calculate Prediction
+Calculate Food Expenditure
 </button>
 
 <div class="result-box">
@@ -136,13 +139,17 @@ Predicted Weekly Food Expenditure
 <div class="result" id="result">
 RM 0.00
 </div>
-
+  
+<div class="period">This is an estimated value based on the regression model.</div>
 </div>
 
 <div class="formula">
 Y = -1.12 + 0.15(Income) + 0.79(Size)
 </div>
-
+    
+<div class="footer">
+    Multiple Linear Regression Model<br>
+    Weekly figures • Currency: Malaysian Ringgit (RM)
 </div>
 
 <script>
