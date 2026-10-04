@@ -149,13 +149,46 @@ button:hover{
     color:white;
     line-height:1.8;
 }
+
+.info-card{
+    margin-top:30px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #f1e5eb;
+}
+
+.info-card h2{
+    color:#A66C83;
+    margin-top:0;
+}
+
+.equation{
+    font-size:28px;
+    font-weight:bold;
+    color:#A66C83;
+    margin:15px 0 25px 0;
+}
+
+.info-card p{
+    line-height:1.8;
+    color:#555;
+    margin:10px 0;
+}
+
+.disclaimer{
+    margin-top:20px;
+    text-align:center;
+    color:#888;
+    font-size:13px;
+}
 </style>
 </head>
 <body>
 
 <div class="card">
             
-<h1>🍽️ Food Expenditure Calculator</h1>
+<h1>🍽️ Food Expenditure Predictor</h1>
 
 <p class="subtitle">
 Predict your weekly food expenditure based on household income and the number of people in your household</p>
@@ -164,16 +197,18 @@ Predict your weekly food expenditure based on household income and the number of
   
 <div class="left-panel">
     
-<label>Weekly Household Income (RM)</label>
+<label>💰 Weekly Household Income (RM)</label>
 <input type="number" id="income" placeholder="e.g. 2000">
 <p class="hint"> Enter your weekly household income in Ringgit Malaysia.</p>
 
-<label>Household Size (Persons)</label>
+<label>👨‍👩‍👧‍👦 Household Size (Persons)</label>
 <input type="number" id="size" placeholder="e.g. 4">
 <div class="hint"> Enter the number of people in the household.</div>
     
 <button onclick="calculate()">
 Calculate Food Expenditure
+    
+    <button onclick="resetForm()">Reset</button>
 </button>
 </div>
 
@@ -193,7 +228,21 @@ RM 0.00
 </div>
 
 <div class="formula">
-Y = -1.12 + 0.15(Income) + 0.79(Size)
+Y = -1.12 + 0.15v(Income) + 0.79 (Size)
+</div>
+
+<div class="formula" id="calculationDetails">
+
+Calculation Details
+
+<br><br>
+Income = RM 0
+<br>
+Household Size = 0
+<br><br>
+Y = -1.12 + 0.15(0) + 0.79(0)
+<br>
+Predicted Food Expenditure = RM 0.00
 </div>
 
 <hr style="border:none;border-top:1px solid #eee;margin:25px 0;">
@@ -203,6 +252,35 @@ Y = -1.12 + 0.15(Income) + 0.79(Size)
     Weekly figures • Currency: Ringgit Malaysia (RM)</div>
 </div>
 </div>
+
+<div class="info-card">
+
+<h2>About This Prediction Model</h2>
+
+<div class="equation">
+ŷ = -1.12 + 0.15X₁ + 0.79X₂
+</div>
+<p>
+<b>X₁</b> = Weekly household income (RM)
+</p>
+<p>
+<b>X₂</b> = Number of people in the household
+</p>
+<p>
+<b>ŷ</b> = Predicted weekly food expenditure (RM)
+</p>
+<p>
+This calculator uses a Multiple Linear Regression model to estimate
+weekly household food expenditure based on household income and
+household size.
+</p>
+
+</div>
+
+<p class="disclaimer">
+This model provides an estimate for learning and academic purposes.
+Actual household expenditure may differ from the predicted value.
+</p>
     
 <script>
 
@@ -220,6 +298,18 @@ const expenditure =
 document.getElementById("result").innerHTML =
 "RM " + expenditure.toFixed(2);
 
+document.getElementById("calculationDetails").innerHTML =
+`
+<b>Calculation Details</b>
+<br><br>
+Income = RM ${income}
+<br>
+Household Size = ${size}
+<br><br>
+Y = -1.12 + 0.15(${income}) + 0.79(${size})
+<br>
+Predicted Food Expenditure = RM ${expenditure.toFixed(2)}
+`;
 }
 
 </script>
