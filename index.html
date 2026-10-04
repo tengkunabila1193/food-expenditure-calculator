@@ -96,7 +96,7 @@ button{
     padding:15px;
     border:none;
     border-radius:12px;
-    background:#C78DA3;
+    background:#AA336A;
     color:white;
     font-size:16px;
     font-weight:600;
@@ -107,7 +107,16 @@ button{
 button:hover{
     background:#A66C83;
 }
+.reset-btn{
+    background:white;
+    color:#A66C83;
+    border:2px solid #C78DA3;
+    margin-top:10px;
+}
 
+.reset-btn:hover{
+    background:#FFF4F8;
+}
 .result-box{
     margin-top:25px;
     font-size:48px;
@@ -210,8 +219,10 @@ Predict your weekly food expenditure based on household income and the number of
     
 <button onclick="calculate()">
 Calculate Food Expenditure
-    
-    <button onclick="resetForm()">Reset</button>
+</button>
+
+<button class="reset-btn" onclick="resetForm()">
+Reset
 </button>
 </div>
 
