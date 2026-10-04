@@ -19,11 +19,29 @@ body{
 }
 
 .card{
-    width:420px;
+    width:900px;
     background:white;
-    padding:35px;
+    padding:25px;
     border-radius:25px;
+    overflow:hidden;
     box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.container{
+    display:flex;
+}
+
+.left-panel{
+    width:50%;
+    padding:40px;
+    background:white;
+}
+
+.right-panel{
+    width:50%;
+    padding:40px;
+    background:#B884A1;
+    color:white;
 }
 
 h1{
@@ -88,6 +106,9 @@ button:hover{
 
 .result-box{
     margin-top:25px;
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:25px;
     background:#FFF4F8;
     border-radius:15px;
     padding:20px;
@@ -132,12 +153,16 @@ button:hover{
 <body>
 
 <div class="card">
-
+            
 <h1>🍽️ Food Expenditure Calculator</h1>
 
 <p class="subtitle">
 Enter your weekly household income and the number of people in your household</p>
-
+  
+<div class="container">
+  
+<div class="left-panel">
+    
 <label>Weekly Household Income (RM)</label>
 <input type="number" id="income" placeholder="e.g. 2000">
 <p class="hint"> Enter your weekly household income in RM.</p>
@@ -149,7 +174,10 @@ Enter your weekly household income and the number of people in your household</p
 <button onclick="calculate()">
 Calculate Food Expenditure
 </button>
+</div>
 
+<div class="right-panel">
+    
 <div class="result-box">
 
 <div class="result-title">
@@ -171,9 +199,8 @@ Y = -1.12 + 0.15(Income) + 0.79(Size)
 
 <div class="footer">
     Multiple Linear Regression Model<br>
-    Weekly figures • Currency: Malaysian Ringgit (RM)
+    Weekly figures • Currency: Malaysian Ringgit (RM)</div>
 </div>
-    
 </div>
     
 <script>
